@@ -6,7 +6,7 @@ const EmailTemplateSender = () => {
     const [emailContent, setEmailContent] = useState(""); // Content from textarea
     const [contentType, setContentType] = useState("text"); // Text or file
     const [htmlPreview, setHtmlPreview] = useState(""); // HTML preview
-    const fileInput = React.createRef(); // Reference to the file input element
+    const fileInput = React.createRef(); // 
 
     const handleEmailChange = (index, value) => {
         const updatedEmails = [...emails];
