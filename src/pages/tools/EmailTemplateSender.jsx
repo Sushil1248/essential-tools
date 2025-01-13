@@ -7,6 +7,7 @@ const EmailTemplateSender = () => {
     const [contentType, setContentType] = useState("text"); // Text or file
     const [htmlPreview, setHtmlPreview] = useState(""); // HTML preview
     const fileInput = React.createRef(); // 
+    const [isSending, setIsSending] = useState(false); // Loading state
 
     const handleEmailChange = (index, value) => {
         const updatedEmails = [...emails];
@@ -43,6 +44,7 @@ const EmailTemplateSender = () => {
     };
 
     const handleSendEmail = async () => {
+        setIsSending(true);
         const toEmails = emails.map(email => email.email); // Assuming `emails` is an array of email objects
         const formData = new FormData();
     
@@ -62,10 +64,12 @@ const EmailTemplateSender = () => {
             });
     
             console.log(response.data);
+            setIsSending(false);
             alert(response.data); // Notify the user about the response
         } catch (error) {
             console.error('Error sending emails:', error.response?.data || error.message);
             alert('An error occurred while sending emails.');
+            setIsSending(false);
         }
     };
 
@@ -182,6 +186,7 @@ const EmailTemplateSender = () => {
             <div className="mt-8 text-center">
                 <button
                     type="button"
+                    disabled={isSending}
                     onClick={handleSendEmail}
                     className="px-8 py-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 focus:outline-none transition"
                 >
