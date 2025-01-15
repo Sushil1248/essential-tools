@@ -2,44 +2,6 @@ import React from "react";
 const IFrameComponent = ({ url, title, description }) => {
   return (
     <section className="py-16 bg-gray-100">
-      <div className="mx-auto max-w-2xl px-6 lg:px-8">
-        {/* Highlight Section */}
-        <div className="bg-white shadow-lg rounded-lg p-8 mb-8 hover:shadow-2xl transition">
-          <div className="flex items-center space-x-4">
-            <div className="bg-indigo-500 text-white px-4 py-2 rounded-full">
-                1
-            </div>
-            <h3 className="text-2xl font-bold text-gray-800">{title}</h3>
-          </div>
-          <p className="mt-4 text-gray-600 text-lg">{description}</p>
-          <div className="mt-6 flex justify-between items-center">
-            <a
-              href={url}
-              className="text-indigo-600 font-semibold hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Explore Tool
-            </a>
-            <div className="text-indigo-600">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="max-w-12xl">
         {/* IFrame Showcase */}
         <div className="rounded-lg overflow-hidden shadow-md border border-gray-200 ">
@@ -58,14 +20,42 @@ const IFrameComponent = ({ url, title, description }) => {
 
 const HighlightProject = () => {
   return (
-    <div>
-      <IFrameComponent
-        url="https://webmanager-client.vercel.app/landing-page" // Replace with your tool's URL
-        title="Content Locker - Your Content, Your Way"
-        description="Content-Locker simplifies content management with its headless CMS approach. Manage, integrate, and enhance your content workflow seamlessly."
-      />
+    <div className="bg-gray-100 p-8 rounded-lg shadow-lg container mx-auto">
+      <div className="flex flex-wrap md:flex-nowrap gap-8">
+        {/* Text Section */}
+        <div className="w-full md:w-2/3 self-center">
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            Featured Project: <span className="text-blue-600">Content Locker</span>
+          </h1>
+          <p className="text-gray-700 text-lg mb-6">
+            Content Locker simplifies content management with its headless CMS approach. Manage, integrate, and enhance your content workflow seamlessly. Empower your team to focus on creativity while ensuring an efficient content delivery pipeline.
+          </p>
+          <div className="mb-6">
+            <a
+              href="https://webmanager-client.vercel.app/landing-page"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300"
+            >
+              Visit Content Locker
+            </a>
+          </div>
+        </div>
+
+        {/* IFrame Section */}
+        <div className="w-full md:w-full">
+          <div className="aspect-w-16 aspect-h-9">
+            <IFrameComponent
+              url="https://webmanager-client.vercel.app/landing-page"
+              title="Content Locker - Your Content, Your Way"
+              description="Content-Locker simplifies content management with its headless CMS approach. Manage, integrate, and enhance your content workflow seamlessly."
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default HighlightProject;
+

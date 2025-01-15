@@ -43,6 +43,26 @@ const EmailTemplateSender = () => {
         }
     };
 
+    const generatePdf = async () => {
+        const formData = new FormData();
+        formData.append('htmlContent', '<h1>Hello, World!</h1>');
+        formData.append('library', 'puppeteer'); // Optional
+    
+        try {
+            const response = await axios.post('http://localhost:3000/convert-html-to-pdf', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+                responseType: 'arraybuffer', // Ensure binary response
+            });
+    
+            const pdfBlob = new Blob([response.data], { type: 'application/pdf' });
+            const pdfUrl = URL.createObjectURL(pdfBlob);
+            console.log(pdfUrl, "PDF ")
+            window.open(pdfUrl, '_blank');
+        } catch (error) {
+            console.error('Error generating PDF:', error);
+        }
+    };
+
     const handleSendEmail = async () => {
         setIsSending(true);
         const toEmails = emails.map(email => email.email); // Assuming `emails` is an array of email objects
@@ -55,17 +75,16 @@ const EmailTemplateSender = () => {
         } else if (contentType === "file" && fileInput.current.files[0]) {
             formData.append('file', fileInput.current.files[0]);
         }
+        // formData.append('library', 'html-pdf'); // Optional
+
     
         try {
-            const response = await axios.post('https://essential-tools.onrender.com/send-email', formData, {
+            const response = await axios.post('http://localhost:3000/convert-html-to-pdf', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-    
-            console.log(response.data);
-            setIsSending(false);
-            alert(response.data); // Notify the user about the response
+            window.open(response.data.pdfUrl); // Open the PDF in a new tab
         } catch (error) {
             console.error('Error sending emails:', error.response?.data || error.message);
             alert('An error occurred while sending emails.');
@@ -81,14 +100,14 @@ const EmailTemplateSender = () => {
 
     return (
         <div className="container mx-auto p-8 bg-white shadow-lg rounded-lg border-t-8 border-indigo-600 max-w-4xl">
-            <h2 className="text-3xl font-semibold text-gray-900 mb-8 text-center">Email Template Sender</h2>
+            <h2 className="text-3xl font-semibold text-indigo-900 mb-8 text-center ">Email Template Sender</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="">
                 {/* Left Side - Email Repeater & Content Type Selection */}
-                <div className="space-y-8">
+                <div className="space-y-8 bg-indigo-200 px-4 py-4 rounded-md">
                     {/* Email Repeater */}
                     <div>
-                        <label className="block text-gray-800 text-lg font-medium mb-2">Recipient Emails</label>
+                        <label className="block text-indigo-800 text-lg font-bold mb-2">Recipient Emails</label>
                         {emails.map((email, index) => (
                             <div className="flex items-center space-x-4 mb-4" key={index}>
                                 <input
@@ -113,17 +132,17 @@ const EmailTemplateSender = () => {
                         <button
                             type="button"
                             onClick={handleAddEmail}
-                            className="text-indigo-600 font-semibold hover:underline text-lg"
+                            className="text-indigo-800 font-medium hover:underline text-lg text-left w-full"
                         >
-                            Add Another Email
+                             + Add Another Email
                         </button>
                     </div>
 
                     {/* Content Type Selection */}
                     <div>
-                        <label className="block text-gray-800 text-lg font-medium mb-2">Content Type</label>
+                        <label className="block text-indigo-800  text-lg font-bold mb-2">Content Type</label>
                         <div className="flex items-center space-x-8">
-                            <label className="flex items-center text-lg">
+                            <label className="flex items-center text-indigo-800 text-md font-bold">
                                 <input
                                     type="radio"
                                     value="text"
@@ -133,7 +152,7 @@ const EmailTemplateSender = () => {
                                 />
                                 Text
                             </label>
-                            <label className="flex items-center text-lg">
+                            <label className="flex items-center text-indigo-800 text-md font-bold">
                                 <input
                                     type="radio"
                                     value="file"
@@ -149,18 +168,18 @@ const EmailTemplateSender = () => {
                     {/* Textarea or File Input */}
                     {contentType === "text" ? (
                         <div>
-                            <label className="block text-gray-800 text-lg font-medium mb-2">Email Content</label>
+                            <label className="block 0 text-lg font-bold mb-2 text-indigo-800 ">Email Content</label>
                             <textarea
                                 value={emailContent}
                                 onChange={handleEmailContentChange}
                                 placeholder="Enter your HTML content here"
                                 rows="8"
-                                className="p-4 border border-gray-300 rounded-md w-full mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                className="p-4 border border-indigo-800 rounded-md w-full mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             />
                         </div>
                     ) : (
                         <div>
-                            <label className="block text-gray-800 text-lg font-medium mb-2">Upload HTML File</label>
+                            <label className="block  text-lg font-medium mb-2">Upload HTML File</label>
                             <input
                                 ref={fileInput}
                                 type="file"
@@ -173,7 +192,7 @@ const EmailTemplateSender = () => {
                 </div>
 
                 {/* Right Side - Preview Container */}
-                <div className="p-6 bg-gray-50 border rounded-lg space-y-4">
+                <div className="p-6 mt-4  bg-gray-50 border border-indigo-800 rounded-lg space-y-4">
                     <h3 className="text-2xl font-semibold text-gray-800 mb-4">Preview</h3>
                     <div
                         className="border p-4 h-full overflow-auto rounded-md bg-white shadow-sm"

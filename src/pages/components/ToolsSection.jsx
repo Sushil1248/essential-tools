@@ -1,20 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HighlightProject from "./HighlightProject";
 
 const ToolsSection = () => {
     return (
-        <section id="tools" className="bg-gray-50 py-16">
+        <section id="projects" className="bg-gray-50 py-16">
             <div className="max-w-7xl mx-auto px-6 lg:px-16">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800">
-                        Explore Our Powerful Tools
+                        Explore Tools
                     </h2>
                     <p className="mt-4 text-gray-600">
                         Enhance your productivity with our innovative tools, designed for developers and creators.
                     </p>
                 </div>
-                <HighlightProject />
+               
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     {/* Tool 1: Email Template Tester */}
@@ -97,7 +96,7 @@ const ToolsSection = () => {
                         </p>
                         <div className="mt-6 flex justify-between items-center">
                             <Link
-                                to="#"
+                                to="/html-to-pdf-converter"
                                 className="text-indigo-600 font-semibold hover:underline"
                             >
                                 Try Now
