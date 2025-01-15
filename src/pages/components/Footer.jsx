@@ -39,7 +39,7 @@ const Footer = () => {
                         <ul className="mt-4 space-y-2">
                             <li>
                                 <a
-                                    href="#about"
+                                      href="https://meet-sushil-kumar.vercel.app"
                                     className="text-gray-400 hover:text-indigo-400 transition"
                                 >
                                     About Me
@@ -47,18 +47,10 @@ const Footer = () => {
                             </li>
                             <li>
                                 <a
-                                    href="#portfolio"
+                                    href="https://meet-sushil-kumar.vercel.app"
                                     className="text-gray-400 hover:text-indigo-400 transition"
                                 >
                                     Portfolio
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#contact"
-                                    className="text-gray-400 hover:text-indigo-400 transition"
-                                >
-                                    Contact
                                 </a>
                             </li>
                         </ul>

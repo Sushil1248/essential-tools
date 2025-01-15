@@ -92,7 +92,7 @@ const ToolsSection = () => {
                             </h3>
                         </div>
                         <p className="mt-4 text-gray-600">
-                            Convert HTML to a downloadable PDF and preview it in real-time.
+                            Convert HTML to a downloadable PDF and preview it in real-time using PDF libraries like pupeeter and HTML-to-PDF.
                         </p>
                         <div className="mt-6 flex justify-between items-center">
                             <Link
