@@ -41,11 +41,12 @@ const PDFConverter = () => {
         formData.append('library', library); // Append the selected library to the payload
 
         try {
-            const response = await axios.post('https://essential-tools.onrender.com/convert-html-to-pdf', formData, {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/convert-html-to-pdf`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
+            console.log(response.data.pdfUrl);
             window.open(response.data.pdfUrl);
         } catch (error) {
             console.error('Error sending emails:', error.response?.data || error.message);

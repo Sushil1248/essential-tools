@@ -50,7 +50,7 @@ const EmailTemplateSender = () => {
             setIsSending(false);
             return;
         }
-        
+
         const toEmails = emails.map(email => email.email); // Assuming `emails` is an array of email objects
         const formData = new FormData();
     
@@ -63,13 +63,11 @@ const EmailTemplateSender = () => {
         }
     
         try {
-            const response = await axios.post('https://essential-tools.onrender.com/send-email', formData, {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/send-email`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-    
-            console.log(response.data);
             setIsSending(false);
             alert(response.data); // Notify the user about the response
         } catch (error) {
