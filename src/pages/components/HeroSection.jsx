@@ -1,8 +1,10 @@
 import React from "react";
+import MovingBar from "./MovingBar";
 
 const HeroSection = () => {
   return (
     <main id="content">
+      <MovingBar text="This is a moving bar" />
       <div className="bg-gradient-to-r from-neutral-900 via-gray-800 to-neutral-900">
         <div className="max-w-7xl mx-auto px-6 lg:px-16 pt-24 lg:pt-36 pb-24 text-center">
           <h1 className="font-extrabold text-white text-4xl md:text-6xl leading-tight">
@@ -63,6 +65,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      <MovingBar text="This is a moving bar" />
     </main>
   );
 };

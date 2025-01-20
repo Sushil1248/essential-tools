@@ -61,7 +61,7 @@ const Footer = () => {
                         <h3 className="text-xl font-semibold text-white">Follow Me</h3>
                         <div className="mt-4 flex justify-center md:justify-end space-x-6">
                             <a
-                                href="#"
+                                href="https://www.linkedin.com/in/sushil-maurya-6256b4154/"
                                 className="text-gray-400 hover:text-indigo-400 transition transform hover:scale-110"
                                 aria-label="LinkedIn"
                             >
@@ -75,7 +75,7 @@ const Footer = () => {
                                 </svg>
                             </a>
                             <a
-                                href="#"
+                                href="https://github.com/sushil-12"
                                 className="text-gray-400 hover:text-indigo-400 transition transform hover:scale-110"
                                 aria-label="GitHub"
                             >

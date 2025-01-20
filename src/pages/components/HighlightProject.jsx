@@ -1,7 +1,7 @@
 import React from "react";
 const IFrameComponent = ({ url, title, description }) => {
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="">
       <div className="max-w-12xl">
         {/* IFrame Showcase */}
         <div className="rounded-lg overflow-hidden shadow-md border border-gray-200 ">
@@ -20,7 +20,7 @@ const IFrameComponent = ({ url, title, description }) => {
 
 const HighlightProject = () => {
   return (
-    <div className="bg-gray-100 p-8 rounded-lg shadow-lg container mx-auto">
+    <div className="p-8 my-20  container mx-auto">
       <div className="flex flex-wrap md:flex-nowrap gap-8">
         {/* Text Section */}
         <div className="w-full md:w-2/3 self-center">

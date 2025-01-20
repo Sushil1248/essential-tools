@@ -5,11 +5,12 @@ import ToolsSection from "./components/ToolsSection";
 import HighlightProject from "./components/HighlightProject";
 
 import Footer from "./components/Footer";
+import MovingBar from "./components/MovingBar";
 
 const LandingPage = () => {
   return (
     <>
-      <Navbar />
+      
       <HeroSection />
       <HighlightProject />
       <ToolsSection />
