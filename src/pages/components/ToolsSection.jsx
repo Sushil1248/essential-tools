@@ -3,30 +3,36 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ToolsSection = () => {
-  const tools = [
+const tools = [
     {
-      title: "Email Template Tester",
-      description:
-        "Test your email templates by sending actual emails and preview them side by side.",
-      link: "/email-template-sender",
-      icon: <InboxIcon className="w-6 h-6 text-white" />,
+        title: "Email Template Tester",
+        description:
+            "Test your email templates by sending actual emails and preview them side by side.",
+        link: "/email-template-sender",
+        icon: <InboxIcon className="w-6 h-6 text-white" />,
     },
     {
-      title: "HTML to PDF Viewer",
-      description:
-        "Convert HTML to a downloadable PDF and preview it in real-time using PDF libraries like puppeteer and HTML-to-PDF.",
-      link: "/html-to-pdf-converter",
-      icon: <DocumentTextIcon className="w-6 h-6 text-white" />,
+        title: "HTML to PDF Viewer",
+        description:
+            "Convert HTML to a downloadable PDF and preview it in real-time using PDF libraries like puppeteer and HTML-to-PDF.",
+        link: "/html-to-pdf-converter",
+        icon: <DocumentTextIcon className="w-6 h-6 text-white" />,
     },
     {
-      title: "JSON Visualizer",
-      description:
-        "Convert JSON data into a visual tree structure for better understanding and debugging.",
-      link: "/json-converter",
-      icon: <CodeBracketIcon className="w-6 h-6 text-white" />,
+        title: "JSON Visualizer",
+        description:
+            "Convert JSON data into a visual tree structure for better understanding and debugging.",
+        link: "/json-converter",
+        icon: <CodeBracketIcon className="w-6 h-6 text-white" />,
+    },
+    {
+        title: "Site Map Generator",
+        description: "Generate a sitemap for your website to improve SEO and navigation.",
+        link: "/site-map-generator",
+        icon: <MagnifyingGlassIcon className="w-6 h-6 text-white" />,
     },
     // Add more tools here if needed
-  ];
+];
 
   return (
     <section id="projects" className="bg-gray-50 py-16">
